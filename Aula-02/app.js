@@ -60,6 +60,15 @@
         diferença de tipagem de dados
 */
 
+/*
+    Tipos de operadores lógicos
+
+        E -> AND -> &&
+        OU -> OR -> ||
+        NÃO -> NOT -> !
+
+*/
+
 // inport da entrada de dados
 const readline = require("readline")
 
