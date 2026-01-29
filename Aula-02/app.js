@@ -102,7 +102,26 @@ entradaDeDados.question("Digite o nome do aluno:", function(nome){
 
                     let nota4 = valor4
                     
+                    // vendo se a validação é vazia
+                    if(nomeAluno == "" || nota1 == "" || nota2 == "" || nota3 == "" || nota4 == ""){
+
+                        console.log("Acho que esqueceu de responder algo, faça novamente !!!")
                     
+                    // validação de entrada de numeros apenas entre 0 até 100
+                    }else if (nota1 < 0 || nota1 > 100 || nota2 < 0 || nota2 > 100 || nota3 < 0 || nota3 > 100 || nota4 < 0 || nota4 > 100) {
+
+                        console.log("As notas que devem ser colocadas de 0 até 100, veja novamente")
+
+                    //Validação de entrada somente de números
+                    // isNaN() -> permite a validação de números ou letras
+                    }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
+
+                        console.log("Olha eu só irei aceitar números, não irei aceitar letras. Faça novamente")
+
+                    }else{
+                        console.log("Espera que já irei calcular")
+                        
+                    }
 
                 })// fecha nota4
 
