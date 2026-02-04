@@ -69,6 +69,31 @@
 
 */
 
+/*
+
+    Formas de converção de tipos
+        parseInt() -> Permite converter um conteúdo em número
+            do tipo INTEIRO
+        
+        parseFloat() -> Permite converter um conteúdo em número
+            do tipo Decimal
+
+        Number() -> Permite converter um conteúdo para NÚMERO,
+            podendo ser inteiro ou decimal
+        
+        String() -> Permite converter um conteúdo em STRING
+
+        Bolean() -> Permite converter um conteúdo para BOOLEANO
+            (true ou false)
+
+
+        typeof() -> Retorna o tipo de dados de uma variável
+            (String, Number, Boolean ou Object)
+*/
+
+// {} isso é um json - no js é um objeto
+// [] isso é Array  - no js é um objeto
+
 // inport da entrada de dados
 const readline = require("readline")
 
@@ -119,8 +144,28 @@ entradaDeDados.question("Digite o nome do aluno:", function(nome){
                         console.log("Olha eu só irei aceitar números, não irei aceitar letras. Faça novamente")
 
                     }else{
-                        console.log("Espera que já irei calcular")
+                        let statusAluno
+                        // o Number é para transformar as strings em numeros
+                        // Observação: não adiante colocae Number(nota1 + nota2 etc) que não vai
+                        let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4))/4
                         
+
+                        if(media >= "70") {
+                            statusAluno = `Parabéns ${nome} você foi APROVADO`
+                        }
+
+                        else if(media >= "50.0" || media >= "69.99"){
+                            statusAluno = `Bom ${nome} você vai ficar de recuperação`
+                        }
+                        
+                        else{
+                            statusAluno = `Parabéns ${nome} você foi REPROVADO SE LASCOU`
+                        }
+
+                        // toFixed() é um método que permite fixara quantidade de casas decimais
+                        // o toFixed é para poder mostra até quantos numeros vai depois do ponto
+                        console.log(`O nosso querido(a) ${nome} teve uma média final de ${media.toFixed(2)} 😊, ${statusAluno}`)
+
                     }
 
                 })// fecha nota4
