@@ -38,18 +38,37 @@ entradaDeDados.question("Por favor digite o nome do comprador:", function(nome){
     
                     let tempo = Parcela
                     let verificando
+
                     // validação
                     if (nomeCliente == "" || produto == "" || valor == "" || taxa == "" || tempo == ""){
 
                         verificando = "Você esqueceu de responder algo, olhe novamente"
-
+                        console.log(verificando)
                     }
                     else if(isNaN(valor) || isNaN(taxa) || isNaN(tempo)){
                         
-                        verificando = "Eu só consigo ler números, não coloque uma letra"
-
+                        verificando = "Eu só consigo ler números, não coloque uma letra. Faça novamente!!"
+                        console.log(verificando)
                     }
+                    else {
+
+                        let calculoTaxa = ((1+ Number(taxa)) ** Number(tempo))
+                        let montante = (Number(valor) * Number(calculoTaxa))
+                        let valorTaxa = Number(montante) - Number(valor)
+                        
+                        console.log(verificando)
+                        console.log(`
+                            ******************* Viva Moda *******************\n
+                            Muito obrigado por realizar a sua compra conosco Sr(a) ${nomeCliente}.
+                            A compra do produto ${produto}, tem um valor de: ${valor}.
+                            A sua compra será parcelada em ${tempo} vezes e o Sr(a) pagará: ${montante.toFixed(2)}.
+                            O acréscimo realizado ao valor de: ${valor} será de ${valorTaxa.toFixed(2)}.\n
+                            ******************* Viva Moda *******************`)
+        
+                    }
+
                    
+
                 })
 
             })
