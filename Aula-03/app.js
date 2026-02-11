@@ -36,8 +36,13 @@
 
                         let qtdParcelas = parcelas
 
-                        let montante = calcularJurosCompostos(valorCompra,taxaJuros,qtdParcelas)
+                        // Importando a biblioteca de calculos financeiros
+                        let calculos = require("./modulo/calculo")
 
+                        //chama a função para calcular o valor do montante
+                        let montante = calculos.calcularJurosCompostos(valorCompra,taxaJuros,qtdParcelas)
+
+                        //Validação para verificar se o calculo foi realizado
                         if(montante){
 
                             console.log(`O valor final é: ${montante}.`)
@@ -61,60 +66,3 @@
         })
 
     })
-
-// Função para retorna o percentual de um número
-function calcularPercentual (numero){
-
-    //recebe o número encaminhado
-    let numeroPercentual = Number(numero)
-
-    // validação
-    if(numero == "" || numero <= 0 || isNaN(numero)){
-        
-        return false
-
-    }
-    else{
-
-         // Calcular o percentual do número
-        let percentual = numeroPercentual / 100
-
-        // Esse Number é para voltar um número
-        return Number(percentual.toFixed(2))
-
-    }
-
-}
-
-// Função para retornar o montante referente a juros composto
-function calcularJurosCompostos(valor, taxa, parcelas){
-
-    // Recebe os valores dos argumentos e converte em números
-    let valorPrincipal = Number(valor)
-
-    let taxaJuros = Number(taxa)
-
-    let qtdParcelas = Number(parcelas)
-
-    if (valor == "" || isNaN (valor) || valor <= 0 || parcelas == "" || isNaN(parcelas) || parcelas <= 0){
-
-        return false
-
-    }else{
-
-        //Chama a função para retornar o percentual
-        let percentual = calcularPercentual(taxaJuros)
-
-        if(percentual){
-
-            //calculo
-            let montante = valorPrincipal * ((1 + percentual) ** qtdParcelas)
-
-            return Number(montante.toFixed(2))
-        }
-        else{
-            return false
-        }
-
-    }
-}
