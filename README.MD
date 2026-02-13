@@ -4,6 +4,8 @@
 
 ### Aula - 01: Fizemos o básico de node.js como colocamos um println no vscode
 ### Aula - 02: Projeto para realizar o calculo de médias escolares
-> Atividade 1: Calculo de juros composto para a empresa Viva Moda
+> Atividade 1: Calculo de juros composto para a empresa "Viva Moda"
 ### Aula - 03: Criar uma aplicação que realiza calculos de Juros utilizando funções para modularizar o código 
 * 🗂️ Treinamento-de-Função
+
+> Atividade 2: Desenvolver uma aplicação para a empresa "Cálculos SA"
