@@ -22,8 +22,15 @@ function calcularOperacoes(informar,nEntrada,n2Entrada){
         calculando = primeiraEntrada * segundaEntrada
 
     }else if (operacao == "Divisão" || operacao == "divisão" || operacao == "divisao"){
+        if(primeiraEntrada <= 0 || segundaEntrada <= 0){
 
-        calculando = primeiraEntrada / segundaEntrada
+            return false
+
+        }else{
+
+            calculando = primeiraEntrada / segundaEntrada
+
+        }
         
     }
     else {

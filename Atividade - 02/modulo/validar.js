@@ -16,6 +16,7 @@ function validacao (nome,entrada,sEntrada,informar){
     }
 }
 
+
 module.exports = {
     validacao
 }
