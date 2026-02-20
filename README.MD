@@ -9,3 +9,4 @@
 * 🗂️ Treinamento-de-Função
 
 > Atividade 2: Desenvolver uma aplicação para a empresa "Cálculos SA"
+> Atividade 2 feita com o professor (Atv-02), da atividade principal
