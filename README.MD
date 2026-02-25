@@ -11,4 +11,9 @@
 > Atividade 2: Desenvolver uma aplicação para a empresa "Cálculos SA"
 > Atividade 2 feita com o professor (Atv-02), da atividade principal
 >> No tauada está ensinando como fazer repetição no JavaScrpit
+
 > Atividade 3: Colocando em prática tudo o que aprendemos, com 5 exercícios
+
+# ISSO É PARA CONHECIMENTO PROPRIO
+### OBS para mostra descrisão
+#### precisa fazer um comentario na primeira linha a descrição, em baixo coloque @param {tipo} (se quiser) e na frente a descrição que quer. Assim aparecerá na função. Pode tambem mostrar na palavra da frente que escrever
