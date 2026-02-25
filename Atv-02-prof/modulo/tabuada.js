@@ -22,9 +22,26 @@ const gerarTabuadaWhile = function(tabuada){
         resultado = calculosMatematicos.multiplicar(tab, cont)
         console.log(`${tab} x ${cont} = ${resultado}`)
 
-        cont++
+        //cont++
+        // da para fazer assim também, essa é uma forma reduzida de cont = cont + 1
+        cont +=1
+    }
+
+}
+
+// Função para imprimir a tabuada com for
+const gerarTabuadafor = function(tabuada){
+
+    let tab = Number(tabuada)
+    let resultado
+    
+    for(let cont = 0; cont <= 10; cont++) {
+        // processando
+        resultado = calculosMatematicos.multiplicar(tab, cont)
+        console.log(`${tab} x ${cont} = ${resultado}\nFor\n`)
     }
 
 }
 
 gerarTabuadaWhile(993)
+gerarTabuadafor(9453)
