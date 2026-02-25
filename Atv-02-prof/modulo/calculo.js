@@ -24,28 +24,29 @@ const calcular = function(numero1,numero2, operador){
     let valor2 = Number(numero2)
     let operadorMatematico = String(operador).toUpperCase()
     
-    let resultado
+    let resultado = false
 
-    if(operadorMatematico == "SOMAR"){
-        resultado = valor1 + valor2
-    }
-    else if (operadorMatematico == "SUBTRAIR"){
-        resultado = valor1 - valor2
-    }
-    else if (operadorMatematico == "MULTIPLICAR"){
-        resultado = valor1 * valor2
-    }
-    else if (operadorMatematico == "DIVIDIR"){
-        resultado = valor1 / valor2
-    }
-    else {
-        return false
-    }
+    switch (operadorMatematico) {
+        case "SOMAR":
+            resultado = valor1 + valor2
+            break;
+    
+        case "SUBTRAIR":
+            resultado = valor1 - valor2
+            break;
+        
+        case "MULTIPLICAR":
+            resultado = valor1 * valor2
+            break;
 
+        case "DIVIDIR":
+            resultado = valor1 / valor2
+            break;
+    }
     return resultado
 
 }
 
 //chamando a função para poder tester
-let x = calcular(20,10,"somar")
-console.log (x)
+let result = calcular(20,10,"somar")
+console.log (result)
