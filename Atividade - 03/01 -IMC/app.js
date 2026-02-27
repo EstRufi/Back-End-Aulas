@@ -5,3 +5,32 @@
     Versão: 1.0.2.26
     
 */
+
+// QUANDO TERMINAR TENTAR NÃO USAR O IF
+// tenta tirar interação
+
+const readline = require("readline")
+
+const entradaDeDados = readline.createInterface({
+
+        input: process.stdin,
+        output: process.stdout
+        
+})
+
+const cal = require("./modulo/calcular")
+const valida = require("./modulo/validar")
+
+entradaDeDados.question("Qual o seu nome?", function(nome){
+    let nomeUsuario
+
+    entradaDeDados.question("Qual é seu peso?", function(peso1){
+        let peso = peso1
+
+        entradaDeDados.question("Qual a sua altura?", function(alturinha){
+            let altura = alturinha
+            
+            
+        })
+    })
+})
