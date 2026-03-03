@@ -30,5 +30,10 @@ const classificar = function status(calculo){
     return status
 }
 
-let imc = 24.97
-console.log(`seu img é ${imc} ${classificar(imc)}`)
+//let imc = 24.97
+//console.log(`seu img é ${imc} ${classificar(imc)}`)
+
+module.exports = {
+    calcular,
+    classificar
+}

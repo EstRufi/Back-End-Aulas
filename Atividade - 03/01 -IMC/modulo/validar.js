@@ -17,3 +17,7 @@ const validacao = function(numero1, numero2, nomeUsuario){
     }
     return erro 
 }
+
+module.exports = {
+    validacao
+}

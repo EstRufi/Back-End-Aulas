@@ -22,14 +22,27 @@ const cal = require("./modulo/calcular")
 const valida = require("./modulo/validar")
 
 entradaDeDados.question("Qual o seu nome?", function(nome){
-    let nomeUsuario
+    let nomeUsuario = nome
 
     entradaDeDados.question("Qual é seu peso?", function(peso1){
         let peso = peso1
 
         entradaDeDados.question("Qual a sua altura?", function(alturinha){
             let altura = alturinha
-            
+            let erro = valida.validacao(peso,altura,nomeUsuario)
+
+            if(erro != false){
+                let result = cal.calcular(peso,altura)
+                if(result){
+                    console.log(`o resultado será ${result}`)
+                }
+                else{
+                    entradaDeDados.close()
+                }
+            }
+            else{
+                console.log(erro)
+            }
             
         })
     })
