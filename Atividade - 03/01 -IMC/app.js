@@ -31,19 +31,24 @@ entradaDeDados.question("Qual o seu nome?", function(nome){
             let altura = alturinha
             let erro = valida.validacao(peso,altura,nomeUsuario)
 
-            if(erro != false){
+            if(erro){
                 let result = cal.calcular(peso,altura)
                 if(result){
-                    console.log(`o resultado será ${result}`)
+                    let status = cal.classificar(result)
+                    if(status){
+                        console.log(`O seu resultado é ${result}`)
+                        console.log(status)
+                    }
                 }
                 else{
+                    console.log("ERRO: NÃO FOI POSSIVEL CALCULAR")
                     entradaDeDados.close()
                 }
             }
             else{
-                console.log(erro)
+                console.log("ERRO: NÃO FOI POSSIVEL VALIDAR")
+                entradaDeDados.close()
             }
-            
         })
     })
 })

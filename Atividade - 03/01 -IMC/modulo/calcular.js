@@ -14,17 +14,17 @@ const classificar = function status(calculo){
     let categoria = calculo
     let status
 
-    if (categoria <= 18.5)
+    if (categoria <= 18.4)
         status = "Você está abaixo do peso"
-    else if (categoria >= 18.6 || categoria <= 24.9)
-        status = "Parabeis você está no peso ideal"
-    else if (categoria >= 25 || categoria <= 29.9 )
+    else if (categoria <= 24.9)
+        status = "Parabéns você está no peso ideal"
+    else if (categoria <= 29.9 )
         status = "Você está acima do peso"
-    else if (categoria >= 30 || categoria <= 34.9)
+    else if (categoria <= 34.9)
         status = "Você está com Obsidade I"
-    else if (categoria >= 35 || categoria <= 39.9)
+    else if (categoria <= 40)
         status = "Você está com Obsidade II"
-    else {
+    else{
         status = "Você está com Obsidade III"
     }
     return status
