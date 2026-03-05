@@ -33,9 +33,10 @@ entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
                                         //let calcula = cal.calcularMedia(nota1,nota2,nota3,nota4)
 
                                         if(erro == false){
-                                            console.log(" vamo calcula")
+                                            
                                         }
                                         else{
+                                            // Funciona
                                             console.log(erro)
                                             entradaDeDados.close()
                                         }

@@ -14,6 +14,8 @@
 
 > Atividade 3: Colocando em prática tudo o que aprendemos, com 5 exercícios
 
+### Aula - 04: Aprendendo a manipular dados em ARRAY e JSON
+
 # ISSO É PARA CONHECIMENTO PROPRIO
 ### OBS para mostra descrisão
 #### precisa fazer um comentario na primeira linha a descrição, em baixo coloque @param {tipo} (se quiser) e na frente a descrição que quer. Assim aparecerá na função. Pode tambem mostrar na palavra da frente que escrever
