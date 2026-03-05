@@ -66,19 +66,57 @@ const exibirDados = function(){
     //Se eu quiser só printar uma só informação use
     console.log(listaDeAlunos[2])
 
+    // forma mais difícil 
     console.log(`O nome do aluno é: ${listaDeAlunos[0]}`)
     console.log(`O nome do aluno é: ${listaDeAlunos[1]}`)
     console.log(`O nome do aluno é: ${listaDeAlunos[2]}`)
     console.log(`O nome do aluno é: ${listaDeAlunos[3]}`)
     console.log(`O nome do aluno é: ${listaDeAlunos[4]}`)
 
-    // Usando o while
-    console.log("\nexemblo com while\n")
+    // Usando o while mais facil
+    console.log("\n exemblo com while \n")
     let cont = 0
-    while (cont < 5) {
+    while (cont < listaDeAlunos.length) {
         console.log(` O nome do aluno é: ${listaDeAlunos[cont]}`)
         cont++
     }
+
+    //  OS FOR ABAIXO SÓ FUNCIONA COM ARRAY
+
+    // Usando o for
+    console.log(`\n*********Exemblo com FOR************\n`)
+    for (let contador = 0; contador < listaDeAlunos.length; contador++)
+        console.log(` O nome do aluno é: ${listaDeAlunos[contador]}`)
+
+
+    // Usando a forma do mercado (USANDO ARRAY)
+    /*Usando FOR EACH 
+      ele olha o que tem no ARREY e depois te entrega oq pediu. o forEach faz isso ate não achar mais conteudo
+    */
+    console.log(`\n*********Exemblo com FOR EACH************\n`)
+   listaDeAlunos.forEach(function(aluno){
+    console.log(` O nome do aluno é: ${aluno}`)
+   })
+
+   /*
+        Usando FOR OF
+
+        o of quer dizer DE 
+   */
+    console.log(`\n*********Exemblo com FOR OF************\n`)
+    for (aluno of listaDeAlunos){
+        console.log(`O nome do aluno é: ${aluno}`)
+    }
+    
+    // Usando FOR IN
+    // com ele vc usa para saber a posição da tabela :D
+    console.log(`\n*********Exemblo com FOR IN************\n`)
+    for (aluno in listaDeAlunos){
+        console.log(`O nome do aluno é: ${aluno}`)
+    }
+
+    // Retorna a quantidade de itens em um array
+    console.log(listaDeAlunos.length)
 }
 
 exibirDados()
