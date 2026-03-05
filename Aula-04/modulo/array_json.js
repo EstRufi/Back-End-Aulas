@@ -50,6 +50,7 @@ const listaDeAlunos = ["José", "Maria", "Luiz", "Antônio", "Carlos"]
 //colocar conteúdo depois
 
 const listaDeClientes = []
+const listaDeFornecedores = []
 
 const exibirDados = function(){
     //EXIBE o objeto ARRAY com o seu conteúdo
@@ -119,4 +120,22 @@ const exibirDados = function(){
     console.log(listaDeAlunos.length)
 }
 
-exibirDados()
+const manipularDados = function(){
+    // Adicionando elementos de forma manual pelo indice
+    listaDeClientes[0] = "Jose da Silva"
+    listaDeClientes[1] = "Maria da Silva"
+    listaDeClientes[2] = "Luiz da Silva"
+    listaDeClientes[3] = "Ana da Silva"
+    listaDeClientes[5] = "Matheus Lucas"
+
+    console.table(listaDeClientes)
+
+    listaDeFornecedores.push("Luck", "Opera", "Perninha", "Ale", "Gaucho","lice", "Cagão")
+    listaDeFornecedores.push("Caio")
+    listaDeFornecedores.push("Luiz")
+
+    console.table(listaDeFornecedores)
+}
+
+//exibirDados()
+manipularDados()
