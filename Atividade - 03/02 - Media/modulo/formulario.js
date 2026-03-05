@@ -120,5 +120,9 @@ const n3 = 100
 const n4 = 100
 
 console.log(formularExame(na,np,sp,sa,c,d,rm,cl,r,n1,n2,n3,n4))
-
 */
+
+module.exports = {
+    formular,
+    formularExame
+}

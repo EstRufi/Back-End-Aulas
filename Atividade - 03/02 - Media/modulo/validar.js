@@ -32,6 +32,9 @@ const validar = function (nomeAluno, nomeProf,
         status = "Olha você deve colocar os valores entre 0 a 100"
     }
 
+    return status
 }
 
-
+module.exports = {
+    validar
+}

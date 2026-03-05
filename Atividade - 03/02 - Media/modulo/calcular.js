@@ -46,5 +46,12 @@ const clasificarExame = function (exameTriste){
     }
     return status
 }
-let m = 67
-console.log(m, clasificarExame(m) )
+// let m = 67
+// console.log(m, clasificarExame(m) )
+
+module.exports = {
+    calcularMedia,
+    calcularExame,
+    clasificar,
+    clasificarExame
+}
