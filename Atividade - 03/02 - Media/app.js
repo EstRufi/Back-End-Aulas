@@ -17,7 +17,7 @@ const entradaDeDados = readline.createInterface({
 
 const cal = require("./modulo/calcular")
 const valida = require("./modulo/validar")
-const forms = require("./modulo/formulario")
+
 
 entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
     entradaDeDados.question("Qual é o gênero do aluno?", function(alunoS){
@@ -30,13 +30,15 @@ entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
                                 entradaDeDados.question(`Quanto ${nomeAluno} tirou na terceira prova?`, function(nota3){
                                     entradaDeDados.question(`Quanto ${nomeAluno} tirou na ultima prova?`, function(nota4){
                                         let erro = valida.validar(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,nota1,nota2,nota3,nota4)
-                                        //let calcula = cal.calcularMedia(nota1,nota2,nota3,nota4)
-
+                                        let calcula = cal.calcularMedia(nota1,nota2,nota3,nota4)
+                                        // primeiro if funciona
                                         if(erro == false){
+                                        // aqui não esta funcionando pq ta dando undefined e enviando pro else
+                                            console.log(calcula)
                                             
                                         }
                                         else{
-                                            // Funciona
+                                            // funciona
                                             console.log(erro)
                                             entradaDeDados.close()
                                         }
