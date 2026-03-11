@@ -38,7 +38,7 @@
                 que seria chave e valor (atributo 1 e 2)
             
                                 chave   valor    chave       valor       chave      valor
-                let cliente = {"nome:" "José", "telefone:" "123456789", "Email:" "jose@gmail"}
+                let cliente = {"nome": "José", "telefone": "123456789", "Email": "jose@gmail"}
  */
 
 // primeira forma de criar ARRAY
@@ -134,8 +134,77 @@ const manipularDados = function(){
     listaDeFornecedores.push("Caio")
     listaDeFornecedores.push("Luiz")
 
+    // Permite adicionar novos elementos no array sempre no INICIO(começo)
+    // Após adicionar o elemento, ele reorganiza todos os outros itens da tabela
+    listaDeFornecedores.unshift("Luciano")
+
+    // Permite adicionar um novo elemento em uma determinada posição do ARRAY
+    //                  .splice(indice,quantidadeDeElementos a ser removido,"novo conteúdo")
+    listaDeFornecedores.splice(7,0,"Jão")
+
+    console.table(listaDeFornecedores)
+    // A diferença entre o unshift e push é que push é colocado no final da tabela, já no unshift ele coloca em primeiro
+
+    //Permite remover um determinado conteudo com base no indice do elemento
+    //                  .splice(indice, quantidadeDeElementos a ser removido)
+    listaDeFornecedores.splice(4,1)
+    console.table(listaDeFornecedores)
+
+    // Formas de remover elementos
+
+    //permite remover o último elemento do ARRAY
+    listaDeFornecedores.pop()
+    console.table(listaDeFornecedores)
+
+    //Permite remover o primeiro elemento do ARRAY
+    //Após ele remover, Irá reorganizar todos os elementos
+    listaDeFornecedores.shift()
     console.table(listaDeFornecedores)
 }
 
+
+// isso aqui é para poder apagar o nome de uma certa pessoa
+
+const removerAluno = function(nome){
+
+    // indexOF() -> Retorna o indice referente ao conteúdo que está sendo pesquisado
+    let indice = listaDeAlunos.indexOf(nome)
+    listaDeAlunos.splice(indice,1)
+
+    // forma de preguiçoso é assim a baixo
+//      listaDeAlunos.splice(listaDeAlunos.indexOF(nome), 1)
+
+    console.log(listaDeAlunos)
+/*
+    let cont = 0
+    let quantidade = listaDeAlunos.length
+
+    while(cont < quantidade){
+        if(nome == listaDeAlunos[cont]){
+            listaDeAlunos.splice(cont,1)
+        }
+        cont++
+    }
+ */
+
+/*    Outra forma 
+
+    for (cont in listaDeAlunos){
+        if(nome == listaDeAlunos[cont]){
+            listaDeAlunos.splice(cont,1)
+            console.log(listaDeAlunos)
+        }
+    }
+ */
+    
+}
+
+const verificarItem = function(nomeAluno){
+
+    // o includes() Verifica se o conteúdo existe dentro do ARRAY e retorna (true/false)
+    return listaDeAlunos.includes(nomeAluno)
+}
 //exibirDados()
-manipularDados()
+//manipularDados()
+//removerAluno("Maria")
+console.log(verificarItem("Maria"))
