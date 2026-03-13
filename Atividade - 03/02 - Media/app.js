@@ -35,10 +35,15 @@ entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
 
                                         if(erro == false){
                                             let media = cal.calcularMedia(nota1,nota2,nota3,nota4)
-                                            
-                                            if(media >= 70){
-                                                let formulario = forms.formular(nomeAluno, nomeProf, profS, alunoS, curso, disciplina, media,  nota1, nota2, nota3, nota4)
+                                            let aprova = cal.clasificar(media)
+
+                                            if (aprova == "aprovado"){
+                                                console.log("chama forms")
                                             }
+                                            else{
+                                                console.log(aprova)
+                                            }
+                                            
 
                                         }
                                         else{

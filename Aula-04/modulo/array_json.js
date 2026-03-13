@@ -204,7 +204,154 @@ const verificarItem = function(nomeAluno){
     // o includes() Verifica se o conteúdo existe dentro do ARRAY e retorna (true/false)
     return listaDeAlunos.includes(nomeAluno)
 }
+
+const manipularDadosJson = function(){
+
+    // Não é recomendado dar espaço, letras maiuscuas, acento e etc
+    //Criando um Objeto JSON
+        // A estrtura do JSON é Chave (atributo) : Valor (conteúdo)
+    let aluno = {"id" : 1, "nome" : "José da Silva", "ra" : 123455, "email" : "José@gmail.com"}
+
+    // Exibe o objeto JSON
+    console.log(aluno)
+    console.table(aluno)
+
+    // Exibe o conteúdo de um atributo JSON
+    console.log(aluno.email)
+
+    //Adiciona um novo atributo no JSON já existente
+    aluno.telfone = "011-987663421"
+    aluno.data_nascimento = "12/11/1999"
+
+    console.log(aluno)
+
+    // remove um atributo do JSON
+    delete aluno.email
+    console.log(aluno)
+
+    //Altera o valor esrito
+    aluno.ra = 123456789
+    console.log(aluno)
+
+    // deixar um valor nulo
+    aluno.nota = null
+    console.log(aluno)
+
+}
+
+const cadastroDeProdutos = function(){
+    // Criando um objeto de cor para o cadastro
+    let cores = [
+        // Aqui usamos o ARRAY para podermos manipular o JSON
+        { 'id': 1, 'cor': 'Branco', 'hexa': '#ffffff' },
+        // Aqui é o JSON amarzenando os dados
+        { 'id': 2, 'cor': 'Preto', 'hexa': "#000000" },
+        { 'id': 3, 'cor': 'Azul', 'hexa': '#0000ff' },
+        { 'id': 4, 'cor': 'Amarelo', 'hexa': '#ffff00' },
+        { 'id': 5, 'cor': 'Rosa', 'hexa': '#ffb5c0' }
+
+    ] // fecha cor
+
+    let marcas = [
+        {'id' : 1, 'marca': 'Logitech',     'telefone' : '011-98761234', 'email' : 'logitech@gmail.com'},
+        {'id' : 2, 'marca': 'Redragon',     'telefone' : '067-12398745', 'email' : 'redragon@gmail.com'},
+        {'id' : 3, 'marca': 'Dell',         'telefone' : '033-43526798', 'email' : 'dell@gmail.com'},
+        {'id' : 4, 'marca': 'AllienWare',   'telefone' : '011-09087421', 'email' : 'allienware@gmail.com'},
+        {'id' : 5, 'marca': 'KBN',          'telefone' : '011-98761234', 'email' : 'kabum@gmail.com'},
+        {'id' : 6, 'marca': 'Rayzer',     'telefone' : '011-98761234', 'email' : 'rayzer@gmail.com'}
+    ] // fecha marca
+
+    let produtos = [
+        {   'id' : 1,
+            'nome' : 'Monitor',
+            'descricao' : 'Monitor de 27 Polegadas',
+            'valor' : 1500,
+            'quantidade' : 20,
+            // A parte de cima foi feita manualmente para guardar o produto
+            'cor' : [
+                cores[0],
+                cores[1]
+            ], // fecha cor
+            'marca' : [
+                marcas[1].marca
+            ] // fecha marca
+            
+        }, // fecha id 1
+
+        {   'id' : 2,
+            'nome' : 'Teclado',
+            'descricao' : 'Teclado mêcanico 60% ARBG',
+            'valor' : 500,
+            'quantidade' : 41,
+            'cor' : cores,
+            'marca' : [
+                marcas[3].marca,
+                marcas[5].marca,
+                marcas[1].marca
+            ] // fecha marca
+            
+        }, // fecha id 2
+
+        {   'id' : 3,
+            'nome' : 'Mouse',
+            'descricao' : 'Mouse 12000dpi RGB',
+            'valor' : 350,
+            'quantidade' : 587,
+            'cor' : [
+                cores[0],
+                cores[1],
+                cores[3]
+            ], // fecha cor
+            'marca' : [
+                marcas[5].marca,
+                marcas[4].marca,
+                marcas[1].marca,
+                marcas[2].marca
+            ] // fecha marca
+            
+        }, // fecha id 3
+
+
+    ] //fecha produto
+
+    
+    console.log(produtos)
+    console.table(produtos)
+    
+
+    // Exibindo as cores de dentro do produto 'MONITOR//INDICE[0]'
+    produtos[0].cor.forEach(function(itemCor){
+        console.log(itemCor.cor)
+    })
+    
+
+    // Caso você queira buscar um item em especifico que esta dentro do ARRAY[indice].nomeAtributo 
+    //console.log(cores[2].cor)
+
+    // Colocando somente as cores no terminal
+    //cores.forEach(function(itemCor) {
+    //    console.log(itemCor.cor)
+    //})
+
+
+    produtos.forEach(function(itemProduto){
+        console.log(`Produto: ${itemProduto.nome}`)
+
+        itemProduto.cor.forEach(function(itemCor){
+            console.log(`   Cor: ${itemCor.cor}`)
+        })
+
+        itemProduto.marca.forEach(function(itemMarca){
+            console.log(`   Marca: ${itemMarca}`)
+        })
+    })
+
+}
+
 //exibirDados()
 //manipularDados()
 //removerAluno("Maria")
-console.log(verificarItem("Maria"))
+//console.log(verificarItem("Maria"))
+//manipularDadosJson()
+
+cadastroDeProdutos()
