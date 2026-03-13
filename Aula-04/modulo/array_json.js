@@ -333,14 +333,16 @@ const cadastroDeProdutos = function(){
     //    console.log(itemCor.cor)
     //})
 
-
+//Peguei informação do produto
     produtos.forEach(function(itemProduto){
         console.log(`Produto: ${itemProduto.nome}`)
 
+// Peguei as informações de cor
         itemProduto.cor.forEach(function(itemCor){
             console.log(`   Cor: ${itemCor.cor}`)
         })
 
+// Por fim peguei as informações da marca
         itemProduto.marca.forEach(function(itemMarca){
             console.log(`   Marca: ${itemMarca}`)
         })
