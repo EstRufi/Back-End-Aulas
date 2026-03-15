@@ -17,6 +17,7 @@ const entradaDeDados = readline.createInterface({
 
 const cal = require("./modulo/calcular")
 const valida = require("./modulo/validar")
+const forms = require("./modulo/formulario")
 
 
 entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
@@ -29,13 +30,32 @@ entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
                             entradaDeDados.question(`Quanto ${nomeAluno} tirou na segunda prova?`, function(nota2){
                                 entradaDeDados.question(`Quanto ${nomeAluno} tirou na terceira prova?`, function(nota3){
                                     entradaDeDados.question(`Quanto ${nomeAluno} tirou na ultima prova?`, function(nota4){
+
                                         let erro = valida.validar(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,nota1,nota2,nota3,nota4)
-                                        let calcula = cal.calcularMedia(nota1,nota2,nota3,nota4)
-                                        // primeiro if funciona
+
                                         if(erro == false){
-                                        // aqui não esta funcionando pq ta dando undefined e enviando pro else
-                                            console.log(calcula)
+                                            let media = cal.calcularMedia(nota1,nota2,nota3,nota4)
+                                            let aprova = cal.clasificar(media)
                                             
+                                            if (aprova == "aprovado"){
+                                                let formulario = forms.formular(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,aprova,media,nota1,nota2,nota3,nota4)
+                                                console.log(formulario)
+                                            }
+                                            else if (aprova == "reprovado"){
+                                                entradaDeDados.question("quanto você tirou no exame?",function(exame){
+
+                                                    let aprovaExame = cal.calcularExame(media,exame)
+                                                    let formularioExame = forms.formularExame(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,media,aprovaExame,exame,nota1,nota2,nota3,nota4)
+
+                                                    if(aprovaExame == "aprovado"){
+                                                        console.log(formularioExame)
+                                                    }
+                                                    else{
+                                                        console.log("pode realizar novamente o semestre :D")
+                                                        entradaDeDados.close()
+                                                    }
+                                                })
+                                            }
                                         }
                                         else{
                                             // funciona

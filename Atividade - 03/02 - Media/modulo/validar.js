@@ -12,7 +12,7 @@ const validar = function (nomeAluno, nomeProf,
     let nota2 = Number(n2)
     let nota3 = Number(n3)
     let nota4 = Number(n4)
-    let status
+    let status = ''
 
     if (aluno == "" || prof == "" ||
         profS == "" || alunoS == "" ||

@@ -1,14 +1,13 @@
 const calcularMedia = function(valor1, valor2, valor3, valor4){
 
-    let nota1 = Number(valor1).replaceAll("," , ".")
-    let nota2 = Number(valor2).replaceAll("," , ".")
-    let nota3 = Number(valor3).replaceAll("," , ".")
-    let nota4 = Number(valor4).replaceAll("," , ".")
+    let nota1 = Number(valor1)
+    let nota2 = Number(valor2)
+    let nota3 = Number(valor3)
+    let nota4 = Number(valor4)
     
     let cal = (nota1 + nota2 + nota3 + nota4) / 4
 
     return Number(cal.toFixed(2))
-
 }
 
 const calcularExame = function(mediaAluno, exameTriste){
