@@ -12,7 +12,7 @@ const validar = function (nomeAluno, nomeProf,
     let nota2 = Number(n2)
     let nota3 = Number(n3)
     let nota4 = Number(n4)
-    let status = ''
+    let status = ""
 
     if (aluno == "" || prof == "" ||
         profS == "" || alunoS == "" ||
@@ -22,7 +22,7 @@ const validar = function (nomeAluno, nomeProf,
 
         status = "Esqueceu de responder algo"
     }
-    else if (isNaN(nota1), isNaN(nota2), isNaN(nota3), isNaN(nota4)) {
+    else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
         status = "Eu só aceito números"
     }
     else if (nota1 <= -1 || nota1 > 100 ||

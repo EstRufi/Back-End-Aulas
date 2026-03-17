@@ -20,18 +20,18 @@ const calcularExame = function(mediaAluno, exameTriste){
 
 }
 
-const clasificar = function (mediaAluno){
-    let media = mediaAluno
-    let status
+// const clasificar = function (mediaAluno){
+//     let media = mediaAluno
+//     let status
 
-    if(media >= 70)
-        status = `aprovado `
-    else if (media <= 49.9)
-        status = "reprovado"
-    else
-        status = "Você irá precisar realizar uma prova"
-    return status
-}
+//     if(media >= 70)
+//         status = `aprovado`
+//     else if (media <= 49.9)
+//         status = "reprovado"
+//     else
+//         status = "Você irá precisar realizar uma prova"
+//     return status
+// }
 
 const clasificarExame = function (exameTriste){
     let exame = Number(exameTriste)
@@ -51,6 +51,5 @@ const clasificarExame = function (exameTriste){
 module.exports = {
     calcularMedia,
     calcularExame,
-    clasificar,
     clasificarExame
 }

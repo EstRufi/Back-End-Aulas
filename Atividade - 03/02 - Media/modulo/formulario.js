@@ -3,11 +3,11 @@ const formular = function (nomeAluno, nomeProf,
     nomeCurso, nomeDisciplina,
     clasificarMedia,resultadoMedia, n1, n2,
     n3, n4) {
-    let aluno = String(nomeAluno).toUpperCase()
-    let prof = String(nomeProf).toUpperCase()
-    let profS = String(sProf).toLowerCase()
-    let alunoS = String(sAluno).toLowerCase()
-    let curso = String(nomeCurso).toLowerCase()
+    let aluno = String(nomeAluno).toLowerCase().trim()
+    let prof = String(nomeProf).toLowerCase().trim()
+    let profS = String(sProf).toLowerCase().trim()
+    let alunoS = String(sAluno).toLowerCase().trim()
+    let curso = String(nomeCurso).toLowerCase().trim()
     let disciplina = String(nomeDisciplina)
     let clasificaMedia = String(clasificarMedia)
     let resultMedia = Number(resultadoMedia)
@@ -54,12 +54,12 @@ const formularExame = function (nomeAluno, nomeProf,
     nomeCurso, nomeDisciplina,resultadoMedia,
     clasificarExame,resultadoExame, n1, n2,
     n3, n4) {
-    let aluno = String(nomeAluno)
-    let prof = String(nomeProf)
-    let profS = String(sProf)
-    let alunoS = String(sAluno)
-    let curso = String(nomeCurso)
-    let disciplina = String(nomeDisciplina)
+    let aluno = String(nomeAluno).toLowerCase().trim()
+    let prof = String(nomeProf).toLowerCase().trim()
+    let profS = String(sProf).toLowerCase().trim()
+    let alunoS = String(sAluno).toLowerCase().trim()
+    let curso = String(nomeCurso).toLowerCase().trim()
+    let disciplina = String(nomeDisciplina).toLowerCase().trim()
     let resultMedia = Number(resultadoMedia)
     let clasificaExame = String(clasificarExame)
     let resultExame = Number(resultadoExame)

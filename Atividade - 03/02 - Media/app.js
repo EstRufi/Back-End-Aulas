@@ -33,28 +33,36 @@ entradaDeDados.question("Qual o nome do aluno(a)?", function(nomeAluno){
 
                                         let erro = valida.validar(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,nota1,nota2,nota3,nota4)
 
-                                        if(erro == false){
+                                        if(erro == ""){
                                             let media = cal.calcularMedia(nota1,nota2,nota3,nota4)
-                                            let aprova = cal.clasificar(media)
                                             
-                                            if (aprova == "aprovado"){
+                                            
+                                            if (media >=70){
+                                                let aprova = "aprovado"
                                                 let formulario = forms.formular(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,aprova,media,nota1,nota2,nota3,nota4)
                                                 console.log(formulario)
+                                                entradaDeDados.close()
                                             }
-                                            else if (aprova == "reprovado"){
+                                            else if (media >= 50){
+                                                console.log(`\n tera que me informar a nota do exame ok?\n`)
                                                 entradaDeDados.question("quanto você tirou no exame?",function(exame){
-
-                                                    let aprovaExame = cal.calcularExame(media,exame)
+                                                    let aprovaExame = "aprovado"
+                                                    let mediaTotal = cal.calcularExame(media,exame)
                                                     let formularioExame = forms.formularExame(nomeAluno,nomeProf,profS,alunoS,curso,disciplina,media,aprovaExame,exame,nota1,nota2,nota3,nota4)
 
-                                                    if(aprovaExame == "aprovado"){
+                                                    if(mediaTotal >= 60){
                                                         console.log(formularioExame)
+                                                        entradaDeDados.close()
                                                     }
                                                     else{
                                                         console.log("pode realizar novamente o semestre :D")
                                                         entradaDeDados.close()
                                                     }
                                                 })
+                                            }
+                                            else{
+                                                console.log("pode realizar novamente o semestre :D")
+                                                    entradaDeDados.close()
                                             }
                                         }
                                         else{
