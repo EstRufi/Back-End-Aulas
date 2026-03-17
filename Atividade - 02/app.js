@@ -2,7 +2,7 @@
     * Objetivo: Desenvolver uma aplicação para a empresa Cálculos SA
     * Autor: Estela
     * Data: 13/02/2026
-    * Versão: 1.0.2.26
+    * Versão: 1.5.2.26
  */
 
 const readline = require("readline")
