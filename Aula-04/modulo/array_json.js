@@ -269,8 +269,12 @@ const cadastroDeProdutos = function(){
             'quantidade' : 20,
             // A parte de cima foi feita manualmente para guardar o produto
             'cor' : [
+                //Esse monitor tem 2 cores (branco e preto) que estão
+                    //amarzenadas no aray
+                // Se eu não colocasse o indise iria todo o nosso aray 
                 cores[0],
                 cores[1]
+                
             ], // fecha cor
             'marca' : [
                 marcas[1].marca
@@ -333,20 +337,58 @@ const cadastroDeProdutos = function(){
     //    console.log(itemCor.cor)
     //})
 
-//Peguei informação do produto
+    console.log(produtos)
+
+    //Permite extrair os produtos
+                            // o produto terá acesso á tudo, porem podemos escolher oq ele deve mostra
     produtos.forEach(function(itemProduto){
-        console.log(`Produto: ${itemProduto.nome}`)
+        console.log(`\nProduto: ${itemProduto.nome}`)
 
-// Peguei as informações de cor
-        itemProduto.cor.forEach(function(itemCor){
-            console.log(`   Cor: ${itemCor.cor}`)
-        })
-
-// Por fim peguei as informações da marca
+        // Permite extrair as mascas dentro de cada produto
         itemProduto.marca.forEach(function(itemMarca){
             console.log(`   Marca: ${itemMarca}`)
         })
+
+        // Permite extrair as cores dentro de cada produto
+        itemProduto.cor.forEach(function(itemCor){
+            console.log(`       Cor: ${itemCor.cor}`)
+        })
+        
     })
+
+    // Filtrando produtos pelo nome
+    console.log(`\n Exemplo de como pesquisar um produto pelo nome\n`)
+
+    // let nomeProduto = "Teclado"
+    // produtos.forEach(function(itemProduto){
+
+    //     if(String(nomeProduto).toUpperCase() == String(itemProduto.nome).toUpperCase()){
+    //         console.log(itemProduto)
+    //     }
+
+    // })
+
+    // estela fez
+    // let corAchar = "Preto"
+    // produtos.forEach(function(itemProduto){
+    //     console.log(itemProduto.cor)
+    //     if(itemProduto.cor == corAchar){
+
+    //     }
+    // })
+
+    // Filtrando o produto pela cor
+    console.log(`\n Exemplo de como pesquisar pela cor do produto\n`)
+
+    let nomeCor = "Preto"
+    produtos.forEach(function(itemProduto){
+        itemProduto.cor.forEach(function(itemCor){
+            if(String(nomeCor).toUpperCase() == String(itemCor.cor).toUpperCase()){
+                console.log(itemProduto)
+            }
+        })
+    })
+
 
 }
 
