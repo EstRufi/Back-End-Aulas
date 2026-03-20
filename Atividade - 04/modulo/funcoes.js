@@ -1,3 +1,5 @@
+// validar a atividade, colocando o null por não ter
+
 const estados = require("./estados_cidades")
 const listaBrasil = estados.listaDeEstados.estados
 
