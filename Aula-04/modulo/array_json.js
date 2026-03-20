@@ -130,11 +130,12 @@ const manipularDados = function(){
 
     console.table(listaDeClientes)
 
+      // Permite adicionar novos elementos no array ( só empurando)
     listaDeFornecedores.push("Luck", "Opera", "Perninha", "Ale", "Gaucho","lice", "Cagão")
     listaDeFornecedores.push("Caio")
     listaDeFornecedores.push("Luiz")
 
-    // Permite adicionar novos elementos no array sempre no INICIO(começo)
+    // Permite adicionar novos elementos no array sempre no FINAL 
     // Após adicionar o elemento, ele reorganiza todos os outros itens da tabela
     listaDeFornecedores.unshift("Luciano")
 
