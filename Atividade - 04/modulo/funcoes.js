@@ -83,8 +83,28 @@ const getEstadosRegiao = function(informarRegiaoEstado){
     return estadoRegiao
 }
 
-const getCapitalPais = function(InformarCapital){
-    
+const getCapitalPais = function(){
+    let capitalBrasil = {capitais : []}
+
+    listaBrasil.forEach(function(estados){
+
+
+        if(estados.capital_pais){
+            
+            capitalBrasil.capitais.push({
+                capital_atual: estados.capital_pais.capital,
+                uf: estados.sigla,
+                descricao: estados.nome,
+                regiao: estados.capital,
+                regiao: estados.regiao,
+                capital_pais_ano_inicio: estados.capital_pais.ano_inicio,
+                capital_pais_ano_termino: estados.capital_pais.ano_fim
+            })
+        }
+        
+
+    })
+    return capitalBrasil
 }
 
 //getListaDeEstados()
