@@ -90,7 +90,7 @@ const getCapitalPais = function(){
 
 
         if(estados.capital_pais){
-            
+
             capitalBrasil.capitais.push({
                 capital_atual: estados.capital_pais.capital,
                 uf: estados.sigla,
@@ -105,6 +105,14 @@ const getCapitalPais = function(){
 
     })
     return capitalBrasil
+}
+
+const getCidades = function(informarCidades){
+    cidade = {}
+
+    listaBrasil.forEach(function(cidades){
+        
+    })
 }
 
 //getListaDeEstados()
