@@ -58,6 +58,35 @@ const getCapitalEstado = function(informarUf){
     return listaUfCapital
 }
 
+const getEstadosRegiao = function(informarRegiaoEstado){
+    let estado = []
+
+    listaBrasil.forEach(function(informarRegiao){
+
+        if( String(informarRegiaoEstado).toUpperCase() == String(informarRegiao.regiao).toUpperCase()){
+            regiao = informarRegiao.regiao
+
+            listaRegiao = {
+                uf: informarRegiao.nome , descricao: informarRegiao.nome
+            }
+            
+            estado.push(listaRegiao)
+        }
+        
+    })
+
+    estadoRegiao = {
+        regiao,
+        estado
+    }
+
+    return estadoRegiao
+}
+
+const getCapitalPais = function(InformarCapital){
+    
+}
+
 //getListaDeEstados()
-console.log(getDadosEstado("rj"))
-console.log(getCapitalEstado("sp"))
+//console.log(getEstadosRegiao("Norte"))
+console.log(getCapitalPais())
