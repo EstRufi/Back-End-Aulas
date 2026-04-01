@@ -107,14 +107,34 @@ const getCapitalPais = function(){
     return capitalBrasil
 }
 
-const getCidades = function(informarCidades){
-    cidade = {}
+const getCidades = function(informarCidades) {
+    cidade = {
+        uf: "",
+        descricao: "",
+        quantidade_cidades: 0,
+        cidades: []
+    }
 
-    listaBrasil.forEach(function(cidades){
-        
+    listaBrasil.forEach(function(cidadizinha) {
+
+        if (String(informarCidades).toUpperCase().trim() === String(cidadizinha.sigla).toUpperCase().trim()) {
+            cidade.uf = cidadizinha.sigla
+            cidade.descricao = cidadizinha.nome
+            cidade.quantidade_cidades = cidadizinha.cidades.length
+            
+            
+            cidadizinha.cidades.forEach(function(nomeCidade){
+                
+                cidade.cidades.push(nomeCidade.nome)
+            })
+        }
+
     })
+
+    return cidade
 }
 
 //getListaDeEstados()
 //console.log(getEstadosRegiao("Norte"))
-console.log(getCapitalPais())
+//console.log(getCapitalPais())
+console.log(getCidades("SP"))
