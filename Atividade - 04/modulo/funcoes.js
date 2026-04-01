@@ -3,7 +3,7 @@
 const estados = require("./estados_cidades")
 const listaBrasil = estados.listaDeEstados.estados
 
-const getListaDeEstados = function () {
+const getListaDeEstados = function (estadinhos) {
     let uf = []
     let quantidade = listaBrasil.length
 
@@ -137,4 +137,4 @@ const getCidades = function(informarCidades) {
 //getListaDeEstados()
 //console.log(getEstadosRegiao("Norte"))
 //console.log(getCapitalPais())
-console.log(getCidades("SP"))
+console.log(getCidades("BA"))
