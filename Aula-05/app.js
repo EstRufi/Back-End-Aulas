@@ -46,14 +46,47 @@ app.use(cors(corsOption))
 const estadosCidades = require("./modulo/funcoes.js")
 
 // Endpoint para listar is estados
-app.get("/estados", function(request,response){
+app.get("/v1/senai/estados", function(request,response){
     let estados = estadosCidades.getListaDeEstados()
     response.json(estados)
     response.status(200) // é uma Requisição bem sucedida então deu certoooo
 })
+    //       para criar uma variavel use /:
+app.get("/v1/senai/dados/estado/:uf", function(request,response){
+    let sigla = request.params.uf
+    let estado = estadosCidades.getDadosEstado(sigla)
+    if(estado){
+        response.json(estado)
+        response.status(200)
+    }
+    else{
+        response.json({"mensage": "Ops não tem esse estado ai não"})
+        response.status(404)
+    }
+})
+
+app.get("/v1/senai/capital/estado/:uf", function(request,response){
+    let sigla = request.params.uf
+    let capital = estadosCidades.getCapitalEstado(sigla)
+
+    if(capital){
+        response.json(capital)
+        response.status(200)
+    }
+    else{
+        response.json({"Erro": "Erro: Enviou um estado desconhecido"})
+        response.status(404)
+    }
+})
 
 
-app.get("/cidades", function(request,response){
+app.get("/v1/senai/capital/pais", function(request, response){
+    let capitalPais = estadosCidades.getCapitalPais()
+    response.json(capitalPais)
+    response.json(200)
+})
+
+app.get("/v1/senai/cidades", function(request,response){
     response.json({"message": "Testando a API de cidades"})
     response.status(200)
 })

@@ -137,7 +137,7 @@ const getCidades = function(informarCidades) {
 //getListaDeEstados()
 //console.log(getEstadosRegiao("Norte"))
 //console.log(getCapitalPais())
-console.log(getCidades("BA"))
+//console.log(getCidades("BA"))
 
 module.exports = {
     getListaDeEstados,
