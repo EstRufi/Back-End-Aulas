@@ -46,49 +46,136 @@ app.use(cors(corsOption))
 const estadosCidades = require("./modulo/funcoes.js")
 
 // Endpoint para listar is estados
+
+//Retorna uma lista de estados
 app.get("/v1/senai/estados", function(request,response){
     let estados = estadosCidades.getListaDeEstados()
-    response.json(estados)
     response.status(200) // é uma Requisição bem sucedida então deu certoooo
+    response.json(estados)
 })
+
+
     //       para criar uma variavel use /:
-app.get("/v1/senai/dados/estado/:uf", function(request,response){
-    let sigla = request.params.uf
+
+// Retorna dados do estado
+// dessa forma é variável via params(parametro)
+
+// posso  enviar da segunte forma /v1/senai/dados/estado/?uf=sp seria uma variável via query Params
+// a diferença e que o query pode colocar mais variaveis
+//app.get("/v1/senai/dados/estado/:uf", function(request,response){
+    app.get("/v1/senai/dados/estado/", function(request,response){
+        // recebe uma variavel via Params
+    // let sigla = request.params.uf
+
+    let sigla = request.query.uf
     let estado = estadosCidades.getDadosEstado(sigla)
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }
     else{
-        response.json({"mensage": "Ops não tem esse estado ai não"})
         response.status(404)
+        response.json({"mensage": "Ops não tem esse estado ai não"})
     }
 })
 
-app.get("/v1/senai/capital/estado/:uf", function(request,response){
-    let sigla = request.params.uf
+//Retorna dados da capital filtrando pela sigla do estado
+app.get("/v1/senai/capital/estado/", function(request,response){
+    //let sigla = request.params.uf
+    let sigla = request.query.uf
     let capital = estadosCidades.getCapitalEstado(sigla)
 
     if(capital){
-        response.json(capital)
         response.status(200)
+        response.json(capital)
     }
     else{
-        response.json({"Erro": "Erro: Enviou um estado desconhecido"})
         response.status(404)
+        response.json({"mensage": "Ops você enviou um estado desconhecido"})
+        
     }
 })
 
+//Retorna os estados filtrando pela região
+app.get("/v1/senai/estados/regiao/:regiao",function(request,response){
+    let regiao = request.params.regiao
+    let estadosRegiao = estadosCidades.getEstadosRegiao(regiao)
 
-app.get("/v1/senai/capital/pais", function(request, response){
-    let capitalPais = estadosCidades.getCapitalPais()
-    response.json(capitalPais)
-    response.json(200)
+    if(estadosRegiao){
+        response.status(200)
+        response.json(estadosRegiao)
+
+    }
+    else{
+        response.status(404)
+        response.json({"mensage": "Ops Voê enviou uma região desconhecida" })
+    }
 })
 
-app.get("/v1/senai/cidades", function(request,response){
-    response.json({"message": "Testando a API de cidades"})
+//Retorna os  estados que foram capital do brasil
+app.get("/v1/senai/estados/capital/brasil", function(request, response){
+    let capitalPais = estadosCidades.getCapitalPais()
     response.status(200)
+    response.json(capitalPais)
+    
+})
+
+//Retorna as cidades filtrando pela sigla do estado
+app.get("/v1/senai/cidades/estados/:uf", function(request,response){
+    let sigla =  request.params.uf
+    let cidadesEstados = estadosCidades.getCidades(sigla)
+
+    if(cidadesEstados){
+        response.status(200)
+        response.json(cidadesEstados)
+    }
+    else{
+        response.status(404)
+        response.json({"mensage": "Ops você enviou uma sigla desconhecida"})
+    }
+})
+
+app.get("/v1/senai/help", function(request,response){
+    let docAPI = {
+        "api-descrpiption": "API para manipular dados de Estados e Cidades",
+        "date" : "2026-04-02",
+        "development": "Estela Rufino Brito",
+        "version" : 1.0,
+        "endpoints": [
+            {
+                "router1": "/v1/senai/estados",
+                "description": "Retorna a lista de todos os estados"
+            },
+            
+            {
+                "router2": "/v1/senai/dados/estado/",
+                "description": "Retorna dados de um estado filtrando pela sigla, que você escrever"
+            },
+            
+            {
+                "router3": "/v1/senai/capital/estado/",
+                "description": "Retorna dados da capital de um estado, filtrando pela sigla, que você escrever"
+            },
+            
+            {
+                "router4": "/v1/senai/estados/regial/sul",
+                "description": "Retorna os estados filtrando pela região"
+            },
+
+            {
+                "router5": "/v1/senai/estados/capital/brasil",
+                "description": "Retorna os estados que ja foram capitais do brasil"
+            },
+
+            {
+                "router6": "/v1/senai/cidades/estados/sp",
+                "description": "Retorna as cidades de cada estado, filtrando pela sigla"
+            }
+        ]
+        
+    }
+    response.status(200)
+    response.json(docAPI)
 })
 
 //Fazer o Start na API (aguardando as requisições)
