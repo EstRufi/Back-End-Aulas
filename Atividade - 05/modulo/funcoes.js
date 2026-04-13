@@ -120,3 +120,12 @@ const getListaPalavrasChaves = function(palavraUsuario){
     })
     return listaConversaArray
 }
+
+module.exports = {
+    getListaUsuario,
+    getListaDadosUsuario,
+    getlistaContatosUsuario,
+    getListaMensagensUsuario,
+    getListaConversaUsuario,
+    getListaPalavrasChaves
+}
