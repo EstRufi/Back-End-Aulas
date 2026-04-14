@@ -16,7 +16,7 @@
  *      "express": "^5.2.1" essa setinha para cima quer dizer que é superior, assim caso tenha atualização ele iria atualiza algo superior ao que vc já tem
  *  
  *      Dependencia para configurar as permições de acesso da API
- *  Instalar o CORS -> npm intall cors --save
+ *  Instalar o CORS -> npm install cors --save
  *      Ele é um conjunto de permições para que o front use nossa api
  *      
  *  Sempre que mechemos com a nossa API precisamos baixa os dois

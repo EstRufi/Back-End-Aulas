@@ -14,12 +14,14 @@ app.use(cors(corsOption))
 
 const conversasZap = require("./modulo/funcoes.js")
 
+// funcionando 11987876567
 app.get("/v1/whatsapp/usuarios", function(request,response){
     let dadosUsuario = conversasZap.getListaUsuario()
     response.status(200)
     response.json(dadosUsuario)
 })
 
+// funcionando
 app.get("/v1/whatsapp/dados/usuario/:numero", function(request, response){
     let numero = request.params.numero
     let informacaoUsuario = conversasZap.getListaDadosUsuario(numero)
@@ -35,6 +37,7 @@ app.get("/v1/whatsapp/dados/usuario/:numero", function(request, response){
     }
 })
 
+// funcionando
 app.get("/v1/whatsapp/lista/contatos/:numero", function (request, response){
     let numero = request.params.numero
     let listaContatos = conversasZap.getlistaContatosUsuario(numero)
@@ -51,6 +54,7 @@ app.get("/v1/whatsapp/lista/contatos/:numero", function (request, response){
     }
 })
 
+// funcionando
 app.get("/v1/whatsapp/mensagens/usuario/:numero", function (request, response){
     let numero = request.params.numero
     let listaMensagens = conversasZap.getListaMensagensUsuario(numero)
@@ -67,6 +71,7 @@ app.get("/v1/whatsapp/mensagens/usuario/:numero", function (request, response){
     }
 })
 
+// erro
 app.get("/v1/whatsapp/conversa/mensagem/usuario/",function(request, response){
     let numero = request.query.numero
     let nomeContato = request.query.nomeContato
@@ -84,6 +89,7 @@ app.get("/v1/whatsapp/conversa/mensagem/usuario/",function(request, response){
     }
 })
 
+// funciono
 app.get("/v1/whatsapp/Conversas/palavras/chaves/:palavras",function(request, response){
     let palavrinhasChaves = request.params.palavras
     let palavrasChaves = conversasZap.getListaPalavrasChaves(palavrinhasChaves)
@@ -101,6 +107,7 @@ app.get("/v1/whatsapp/Conversas/palavras/chaves/:palavras",function(request, res
 
 })
 
+//funciono
 app.get("/v1/whatsapp/help", function(request,response){
     let docAPI = {
         "api-descrpiption": "API para manipular dados de usuarios do whatsapp",
@@ -134,7 +141,7 @@ app.get("/v1/whatsapp/help", function(request,response){
             },
 
             {
-                "router6": "/v1/whatsapp/Conversas/palavras/chaves/:palavras",
+                "router6": "/v1/whatsapp/Conversas/palavras/chaves/hi",
                 "description": "Retorna a mensagem e a pessoa que mandou por meio de uma palavra chave, filtrando por alguma palavra"
             }
         ]

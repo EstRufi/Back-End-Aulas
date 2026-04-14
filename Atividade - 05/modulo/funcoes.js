@@ -27,13 +27,16 @@ const getListaDadosUsuario = function(numeroUsuario){
                 dataEncerrandoConta: itemsProfile["created-since"].end
             }
            profileUsuarioArray.push(profile)
-        }
-        else{
-            return false
-        }
-        
+        }    
     })
-    return profileUsuarioArray
+
+    if(numeroUsuario == null || numeroUsuario == ""){
+        return false
+    }
+    else{
+        return profileUsuarioArray
+    }
+    
 }
 
 // funcionando está filtrando pelo numero de usuario ex (11987876567)
@@ -67,10 +70,14 @@ const getListaMensagensUsuario = function (numeroUsuario){
         if(Number(numeroUsuario) === Number(itensMensagem.number)){
             itensMensagem.contacts.forEach(function(mensagemUsuario){
                 conversasUsuario = {
+                    nomeUsuario: itensMensagem.account,
+                    numeroUsuario: itensMensagem.number,
+                    nome: mensagemUsuario.name,
                     mensagem: mensagemUsuario.messages
                 }
+                listaMensagensUsuarioArray.push(conversasUsuario)
             })
-            listaMensagensUsuarioArray.push(conversasUsuario)
+            
         }
     })
     return listaMensagensUsuarioArray
@@ -134,4 +141,4 @@ module.exports = {
     getListaConversaUsuario,
     getListaPalavrasChaves
 }
-console.log(getListaDadosUsuario(11987876567))
+console.log(getListaDadosUsuario(11986567))
