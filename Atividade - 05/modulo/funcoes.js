@@ -2,6 +2,8 @@ const contato = require("./contatos.js")
 const zapContato = contato.contatos["whats-users"]
 
 // funciono não há filtro
+// não precisa de validacao
+
 const getListaUsuario = function(){
 
     let tudoContatoArray = [zapContato]
@@ -12,7 +14,7 @@ const getListaUsuario = function(){
 // funcionando está filtrando pelo numero de usuario ex (11987876567)
 const getListaDadosUsuario = function(numeroUsuario){
     let profileUsuarioArray = []
-
+    
     zapContato.forEach(function(itemsProfile){
         if(Number(numeroUsuario) === Number(itemsProfile.number)){
             profile = {
@@ -25,6 +27,9 @@ const getListaDadosUsuario = function(numeroUsuario){
                 dataEncerrandoConta: itemsProfile["created-since"].end
             }
            profileUsuarioArray.push(profile)
+        }
+        else{
+            return false
         }
         
     })
@@ -129,3 +134,4 @@ module.exports = {
     getListaConversaUsuario,
     getListaPalavrasChaves
 }
+console.log(getListaDadosUsuario(11987876567))

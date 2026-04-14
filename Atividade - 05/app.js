@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 
+// ter que fazer na sala
 
 const app = express()
 const corsOption = {
@@ -103,7 +104,7 @@ app.get("/v1/whatsapp/Conversas/palavras/chaves/:palavras",function(request, res
 app.get("/v1/whatsapp/help", function(request,response){
     let docAPI = {
         "api-descrpiption": "API para manipular dados de usuarios do whatsapp",
-        "date" : "2026-04-013",
+        "date" : "2026-04-13",
         "development": "Estela Rufino Brito",
         "version" : 1.0,
         "endpoints": [
@@ -114,7 +115,7 @@ app.get("/v1/whatsapp/help", function(request,response){
             
             {
                 "router2": "/v1/whatsapp/dados/usuario/11987876567",
-                "description": "Retorna uma lista de informações do usuário que tem este número"
+                "description": "Retorna uma lista de informações do usuário que tem este número, filtrando pelo número dele"
             },
             
             {
@@ -123,22 +124,26 @@ app.get("/v1/whatsapp/help", function(request,response){
             },
             
             {
-                "router4": "/v1/senai/estados/regial/sul",
-                "description": "Retorna os estados filtrando pela região"
+                "router4": "/v1/whatsapp/mensagens/usuario/11987876567",
+                "description": "Retorna todas as mensagens trocadas com os contato de usuário, filtrando pelo número dele"
             },
 
             {
-                "router5": "/v1/senai/estados/capital/brasil",
-                "description": "Retorna os estados que ja foram capitais do brasil"
+                "router5": "/v1/whatsapp/conversa/mensagem/usuario/",
+                "description": "Retorna a conversa do usuário com o contato , filtrando pelo número dele e o nome do contato "
             },
 
             {
-                "router6": "/v1/senai/cidades/estados/sp",
-                "description": "Retorna as cidades de cada estado, filtrando pela sigla"
+                "router6": "/v1/whatsapp/Conversas/palavras/chaves/:palavras",
+                "description": "Retorna a mensagem e a pessoa que mandou por meio de uma palavra chave, filtrando por alguma palavra"
             }
         ]
         
     }
     response.status(200)
     response.json(docAPI)
+})
+
+app.listen(8080, function(){
+    console.log("API aguardando novas requisições . . . .")
 })
