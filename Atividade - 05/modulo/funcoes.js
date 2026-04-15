@@ -30,7 +30,7 @@ const getListaDadosUsuario = function(numeroUsuario){
         }    
     })
 
-    if(numeroUsuario == null || numeroUsuario == ""){
+    if(profileUsuarioArray == null || profileUsuarioArray == "" || !isNaN(profileUsuarioArray)){
         return false
     }
     else{
@@ -59,7 +59,13 @@ const getlistaContatosUsuario = function(numeroUsuario){
         }
         
     })
-    return listaContatoUsuarioArray
+        if(listaContatoUsuarioArray == null || listaContatoUsuarioArray == "" || !isNaN(listaContatoUsuarioArray)){
+        return false
+    }
+    else{
+        return listaContatoUsuarioArray
+    }
+    
 }
 
 // funcionando está filtrando pelo numero de usuario ex (11987876567)
@@ -80,7 +86,13 @@ const getListaMensagensUsuario = function (numeroUsuario){
             
         }
     })
-    return listaMensagensUsuarioArray
+
+    if(listaMensagensUsuarioArray == null || listaMensagensUsuarioArray == "" || !isNaN(listaMensagensUsuarioArray)){
+        return false
+    }
+    else{
+        return listaMensagensUsuarioArray
+    }
 }
 
 // funcionando está filtrando pelo numero de usuario e nome do contato ex (11987876567) e "Ana Maria"
@@ -103,34 +115,47 @@ const getListaConversaUsuario = function(numeroUsuario,nomeContato){
             
         }
     })
-    return listaConversaUsuarioArray
+    if(listaConversaUsuarioArray == null || listaConversaUsuarioArray == "" || !isNaN(listaConversaUsuarioArray)){
+        return false
+    }
+    else{
+        return listaConversaUsuarioArray
+    }
+    
 }
 
-// funcionando está filtrando por uma palavra da conversa
-const getListaPalavrasChaves = function(palavraUsuario){
+// funcionando está filtrando pelo numero do usuário e a palavra da conversa
+const getListaPalavrasChaves = function(numeroUsuario,palavraUsuario){
     let listaConversaArray = []
     let filtro = String(palavraUsuario).toUpperCase()
     
-
     zapContato.forEach(function(localizarItens){
-        localizarItens.contacts.forEach(function(localizador){
-            localizador.messages.forEach(function(itemMensagem){
-                let mensagensMaiusculo = itemMensagem.content.toUpperCase()
+        if(Number(numeroUsuario) === Number(localizarItens.number)){
+            localizarItens.contacts.forEach(function(localizador){
+                localizador.messages.forEach(function(itemMensagem){
+                    let mensagensMaiusculo = itemMensagem.content.toUpperCase()
 
-                if(mensagensMaiusculo.includes(filtro)){
-                    filtroConversas = {
-                        nomeUsuario: localizarItens.account,
-                        numeroUsuario: localizarItens.number,
-                        contato: localizador.name,
-                        mensagem: localizador.messages
+                    if(mensagensMaiusculo.includes(filtro)){
+                        filtroConversas = {
+                            nomeUsuario: localizarItens.account,
+                            numeroUsuario: localizarItens.number,
+                            contato: localizador.name,
+                            mensagem: localizador.messages
+                        }
+                        listaConversaArray.push(filtroConversas)
                     }
-                    listaConversaArray.push(filtroConversas)
-                }
+                })
             })
-        })
-        
+        }
     })
-    return listaConversaArray
+
+    if(listaConversaArray == null || listaConversaArray == "" || !isNaN(listaConversaArray)){
+        return false
+    }
+    else{
+        return listaConversaArray
+    }
+    
 }
 
 module.exports = {
@@ -141,4 +166,3 @@ module.exports = {
     getListaConversaUsuario,
     getListaPalavrasChaves
 }
-console.log(getListaDadosUsuario(11986567))

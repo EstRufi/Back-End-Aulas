@@ -71,7 +71,7 @@ app.get("/v1/whatsapp/mensagens/usuario/:numero", function (request, response){
     }
 })
 
-// erro
+// funcionando
 app.get("/v1/whatsapp/conversa/mensagem/usuario/",function(request, response){
     let numero = request.query.numero
     let nomeContato = request.query.nomeContato
@@ -90,9 +90,10 @@ app.get("/v1/whatsapp/conversa/mensagem/usuario/",function(request, response){
 })
 
 // funciono
-app.get("/v1/whatsapp/Conversas/palavras/chaves/:palavras",function(request, response){
-    let palavrinhasChaves = request.params.palavras
-    let palavrasChaves = conversasZap.getListaPalavrasChaves(palavrinhasChaves)
+app.get("/v1/whatsapp/Conversas/palavras/chaves/",function(request, response){
+    let numero = request.query.numero
+    let palavrinhasChaves = request.query.palavras
+    let palavrasChaves = conversasZap.getListaPalavrasChaves(numero,palavrinhasChaves)
 
     if(palavrasChaves){
         response.status(200)
@@ -141,8 +142,8 @@ app.get("/v1/whatsapp/help", function(request,response){
             },
 
             {
-                "router6": "/v1/whatsapp/Conversas/palavras/chaves/hi",
-                "description": "Retorna a mensagem e a pessoa que mandou por meio de uma palavra chave, filtrando por alguma palavra"
+                "router6": "/v1/whatsapp/Conversas/palavras/chaves/",
+                "description": "Retorna a mensagem e a pessoa que mandou por meio de uma palavra chave, filtrando pelo numero de telefone do usuario e a palavra chave"
             }
         ]
         
