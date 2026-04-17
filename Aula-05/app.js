@@ -2,7 +2,7 @@
  * Objetivo: Arquivo responsável pela criação da API do projeto de Estados e Cidades
  * Data: 01/04/2026
  * Autor: Estela
- * Versão:1.0
+ * Versão:1.0.4.26
  */
 
 
@@ -23,7 +23,6 @@
  */
 
 //Import das dependencias para criar a API
-
 const express = require("express")
 const cors = require("cors")
 
