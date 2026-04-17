@@ -3,35 +3,56 @@
  *              MySQL
  * Data: 15/04/2026
  * Autor: Estela
- * Versão:1.0
+ * Versão:1.0.4.26
  */
+
+// async é para que o await(PARE) espere a resposta o banco para depois ir. Eles são um casal tem que ser os dois juntos não pode ser somente um
+
+// Import da biblioteca para manupular dados no Banco de dados MySQL
+const knex = require('knex')
+
+// Import do arquivo de configuração para acesso ao banco de dados
+const knexDataBaseConfig = require("../../database_config/knexConfig.js")
+
+//Criar a conexão com o BD Mysql conforme o arquivo de configuração
+const knexConection = knex(knexDataBaseConfig.development)
+
+
 
 // Função para inserir um novo filme no banco de dados
 const insertFilme = async function(filme){
-let sql = `insert into tbl_filme (
-	nome,
-    sinopse,
-    capa,
-    data_lancamento,
-    duracao,
-    valor,
-    avaliacao
-) values(
-	'${filme.nome}',
+    let sql = `insert into tbl_filme (
+	    nome,
+        sinopse,
+        capa,
+        data_lancamento,
+        duracao,
+        valor,
+        avaliacao
+    ) values(
+	    '${filme.nome}',
     
-    '${filme.sinopse}',
+        '${filme.sinopse}',
     
-    '${filme.capa}',
+        '${filme.capa}',
     
-    '${filme.data_lancamento}',
+        '${filme.data_lancamento}',
     
-    '${filme.duracao}',
+        '${filme.duracao}',
     
-    '${filme.valor}',
+        '${filme.valor}',
     
-    '${filme.avaliacao}'
-);`
+        '${filme.avaliacao}'
+    );`
+
+    // Encaminha para o BD o scriptSQL
+    // await faz que o JavaScript PARE e não prosiga, assim dá tempo o banco responder para poder continuar a aplicação
+    let result = await knexConection.raw(sql)
     
+    if(result)
+        return true
+    else
+        return false
 }
 
 // Função para atualizar um filme existente no banco de dados
